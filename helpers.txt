@@ -1,0 +1,12 @@
+---- postgresqldan foydalanilyapti ----
+
+#### DATABASE setting
+-----  CREATE USER "nexus_user" WITH PASSWORD 'nexus_root';
+-----  CREATE DATABASE "nexus_db" OWNER 'nexus_user';
+
+#### Create user
+---- python manage.py createsuperuser
+
+   username --- admin
+   email   ---  admin@nexus.uz
+   password --- 123456
