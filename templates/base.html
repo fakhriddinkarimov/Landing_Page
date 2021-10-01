@@ -1,17 +1,17 @@
-<!DOCTYPE html>
+{% load static %}
 <html lang="en">
    <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <title>NexusPlus - Classified Ads and Listing Template</title>
-      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-      <link rel="stylesheet" type="text/css" href="assets/fonts/line-icons.css">
-      <link rel="stylesheet" type="text/css" href="assets/css/slicknav.css">
-      <link rel="stylesheet" type="text/css" href="assets/css/color-switcher.css">
-      <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
-      <link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.css">
-      <link rel="stylesheet" type="text/css" href="assets/css/main.css">
-      <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'fonts/line-icons.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/slicknav.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/color-switcher.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/owl.carousel.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
    </head>
    <body>
       <header id="header-wrap">
@@ -49,7 +49,7 @@
                   <span class="lni-menu"></span>
                   <span class="lni-menu"></span>
                   </button>
-                  <a href="index-2.html" class="navbar-brand"><img src="assets/img/logo.png" alt=""></a>
+                  <a href="index-2.html" class="navbar-brand"><img src="{% static 'img/logo.png' %}" alt=""></a>
                </div>
                <div class="collapse navbar-collapse" id="main-navbar">
                   <ul class="navbar-nav mr-auto w-100 justify-content-center">
@@ -227,7 +227,7 @@
                <div class="row">
                   <div class="col-lg-4 col-md-4 col-xs-6 col-mb-12">
                      <div class="widget">
-                        <div class="footer-logo"><img src="assets/img/logo.png" alt=""></div>
+                        <div class="footer-logo"><img src="{% static 'img/logo.png" alt=""></div>
                         <div class="textwidget">
                            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt consectetur, adipisci velit.</p>
                         </div>
@@ -282,18 +282,18 @@
       <div id="preloader">
          <div class="loader" id="loader-1"></div>
       </div>
-      <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery-min.js"></script>
-      <script src="assets/js/popper.min.js"></script>
-      <script src="assets/js/bootstrap.min.js"></script>
-      <script src="assets/js/color-switcher.js"></script>
-      <script src="assets/js/jquery.counterup.min.js"></script>
-      <script src="assets/js/waypoints.min.js"></script>
-      <script src="assets/js/wow.js"></script>
-      <script src="assets/js/owl.carousel.min.js"></script>
-      <script src="assets/js/jquery.slicknav.js"></script>
-      <script src="assets/js/main.js"></script>
-      <script src="assets/js/form-validator.min.js"></script>
-      <script src="assets/js/contact-form-script.min.js"></script>
-      <script src="assets/js/summernote.js"></script>
+      <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="{% static 'js/jquery-min.js"></script>
+      <script src="{% static 'js/popper.min.js' %}"></script>
+      <script src="{% static 'js/bootstrap.min.js' %}"></script>
+      <script src="{% static 'js/color-switcher.js' %}"></script>
+      <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+      <script src="{% static 'js/waypoints.min.js' %}"></script>
+      <script src="{% static 'js/wow.js' %}"></script>
+      <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+      <script src="{% static 'js/jquery.slicknav.js' %}"></script>
+      <script src="{% static 'js/main.js' %}"></script>
+      <script src="{% static 'js/form-validator.min.js' %}"></script>
+      <script src="{% static 'js/contact-form-script.min.js' %}"></script>
+      <script src="{% static 'js/summernote.js' %}"></script>
    </body>
 </html>
