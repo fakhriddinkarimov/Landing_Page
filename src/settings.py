@@ -37,7 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ad'
+    'ad',
+    # 'blog',
+    # 'contact',
+    # "tinymce",
+
+
 ]
 
 MIDDLEWARE = [
@@ -133,3 +138,8 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 465
+EMAIL_HOST_USER = "sayfulladottoyev@gmail.com"
+EMAIL_HOST_PASSWORD = "qszxnslktedmshng"
+EMAIL_USE_SSL = True
