@@ -3,6 +3,7 @@ from .forms import Send_email
 # Create your views here.
 from django.core.mail import send_mail
 
+
 def contact(request):
     if request.POST:
         send_mail(
@@ -14,6 +15,26 @@ def contact(request):
         )
     form = Send_email()
     ctx = {
-        "form" : form
+        "form": form
     }
-    return render(request,"contact/contact.html",ctx)
+    return render(request, "contact/contact.html", ctx)
+
+
+def page_404(request):
+    return render(request, "pages/404.html", {})
+
+
+def page_faq(request):
+    return render(request, "pages/faq.html", {})
+
+
+def page_about(request):
+    return render(request, "pages/about.html", {})
+
+
+def page_services(request):
+    return render(request, "pages/services.html", {})
+
+
+def page_pricing(request):
+    return render(request, "pages/pricing.html", {})
