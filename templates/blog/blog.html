@@ -175,14 +175,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-12 col-xs-12">
-                    {% for blog in blogs %}
+                    <div class="post-btn">
+                        <a class="btn btn-common" href="{% url 'add_post'%}"><i class="lni-pencil-alt"></i> ADD BLOG </a>
+                    </div>
+                    <form>{% csrf_token %}
+                         {% for blog in blogs %}
                         <div class="blog-post">
-                        <div class="post-thumb">
-                            <a href="#"><img class="img-fluid" src="{% static 'assets/imgblog/blog1.jpg' %}" alt="" /></a>
+                            <div class="post-thumb">
+                            {{ blog.image }}
+                            <a href="#"><img class="img-fluid" src="{{ blog.image }}" alt="" /></a>
                             <div class="hover-wrap"></div>
                         </div>
 
-                        <div class="post-content">
+                            <div class="post-content">
                             <div class="meta">
                                 <span class="meta-part">
                                     <a href="#"><i class="lni-user"></i> Clasified</a>
@@ -197,15 +202,15 @@
                                     <a href="#"><i class="lni-comments-alt"></i> {{ blog.blog_id }} Comments</a>
                                 </span>
                             </div>
-                            <h2 class="post-title"><a href="single-post.html">{{ blog.name }}</a></h2>
+                            <h2 class="post-title"><a href="{% url 'commet' id=blog.id %}">{{ blog.name }}</a></h2>
                             <div class="entry-summary">
                                 <p>{{ blog.description }}</p>
                             </div>
                             <a href="single-post.html" class="btn btn-common">Read More</a>
                         </div>
-                    </div>
-                    {% endfor %}
-
+                       </div>
+                         {% endfor %}
+                    </form>
                     <div class="pagination-bar">
                         <nav>
                             <ul class="pagination">
@@ -229,111 +234,30 @@
                     <div class="widget categories">
                         <h4 class="widget-title">All Categories</h4>
                         <ul class="categories-list">
-                            <li>
-                                <a href="#">
+                            {% for category in categorys %}
+                               <li>
+                                <a href="{% url 'blog'%}">
                                     <i class="lni-dinner"></i>
-                                    Hotel & Travels <span class="category-counter">(5)</span>
+                                    {{ category.name }} <span class="category-counter">{{ category.parent }}</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="#">
-                                    <i class="lni-control-panel"></i>
-                                    Services <span class="category-counter">(8)</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="lni-github"></i>
-                                    Pets <span class="category-counter">(2)</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="lni-coffee-cup"></i>
-                                    Restaurants <span class="category-counter">(3)</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="lni-home"></i>
-                                    Real Estate <span class="category-counter">(4)</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="lni-pencil"></i>
-                                    Jobs <span class="category-counter">(5)</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="lni-display"></i>
-                                    Electronics <span class="category-counter">(9)</span>
-                                </a>
-                            </li>
+                            {% endfor %}
                         </ul>
                     </div>
 
                     <div class="widget widget-popular-posts">
                         <h4 class="widget-title">Recent Posts</h4>
                         <ul class="posts-list">
-                            <li>
-                                <div class="widget-thumb">
-                                    <a href="#"><img src="{% static 'assets/img/blog/thumb1.jpg' %}" alt="" /></a>
-                                </div>
-                                <div class="widget-content">
-                                    <a href="#">Eum Iriure Dolor Duis Autem</a>
-                                    <span><i class="icon-calendar"></i>June 21, 2018</span>
-                                </div>
+                            {% for last_commet in last_commets %}
+                               <li>
+                                 <div class="widget-content">
+                                    <a href="#">{{ last_commet.name }}</a>
+                                    <span><i class="icon-calendar"></i>{{ last_commet.created_date }}</span>
+                                 </div>
                                 <div class="clearfix"></div>
-                            </li>
-                            <li>
-                                <div class="widget-thumb">
-                                    <a href="#"><img src="{% static 'assets/imgblog/thumb2.jpg' %}" alt="" /></a>
-                                </div>
-                                <div class="widget-content">
-                                    <a href="#">Consectetuer Adipiscing Elit</a>
-                                    <span><i class="icon-calendar"></i>June 18, 2018</span>
-                                </div>
-                                <div class="clearfix"></div>
-                            </li>
-                            <li>
-                                <div class="widget-thumb">
-                                    <a href="#"><img src="{% static 'assets/imgblog/thumb3.jpg' %}" alt="" /></a>
-                                </div>
-                                <div class="widget-content">
-                                    <a href="#">Et Leggings Fanny Pack</a>
-                                    <span><i class="icon-calendar"></i>June 17, 2018</span>
-                                </div>
-                                <div class="clearfix"></div>
-                            </li>
-                            <li>
-                                <div class="widget-thumb">
-                                    <a href="#"><img src="{% static 'assets/imgblog/thumb4.jpg' %}" alt="" /></a>
-                                </div>
-                                <div class="widget-content">
-                                    <a href="#">Exercitation Photo Booth</a>
-                                    <span><i class="icon-calendar"></i>June 12, 2018</span>
-                                </div>
-                                <div class="clearfix"></div>
-                            </li>
-                            <li>
-                                <div class="widget-thumb">
-                                    <a href="#"><img src="{% static 'assets/imgblog/thumb5.jpg' %}" alt="" /></a>
-                                </div>
-                                <div class="widget-content">
-                                    <a href="#">Eum Iriure Dolor Duis Autem</a>
-                                    <span><i class="icon-calendar"></i>June 9, 2018</span>
-                                </div>
-                                <div class="clearfix"></div>
-                            </li>
+                               </li>
+                            {% endfor %}
                         </ul>
-                    </div>
-                    <div class="widget">
-                        <h4 class="widget-title">Advertisement</h4>
-                        <div class="add-box">
-                            <img src="{% static 'assets/imgimg1.jpg' %}" alt="" />
-                        </div>
                     </div>
                 </aside>
             </div>

@@ -9,17 +9,56 @@ def dictfetchall(cursor):
     ]
 
 
+def dictfetchone(cursor):
+    desc = cursor.description
+    return dict(zip([col[0] for col in desc], cursor.fetchone()))
+
+
 def get_blog():
     with connection.cursor() as cursor:
         cursor.execute("""
                 SELECT * FROM blog_blog
                 ORDER BY created_date DESC
         """)
+        data = dictfetchall(cursor)
+    return data
 
 
-def get_comments():
+
+def get_comments(id):
+    with connection.cursor() as cursor:
+        cursor.execute(f"""
+                SELECT * FROM blog_comments
+                where blog_id = {id}
+        """)
+        data = dictfetchall(cursor)
+    return data
+
+
+def last_commet():
     with connection.cursor() as cursor:
         cursor.execute("""
                 SELECT * FROM blog_comments
                 ORDER BY created_date DESC
+                limit 5;
         """)
+        data = dictfetchall(cursor)
+    return data
+
+
+def info_blog(id):
+    with connection.cursor() as cursor:
+        cursor.execute(f"""
+                SELECT * FROM blog_blog
+                where id = {id}
+        """)
+        data = dictfetchone(cursor)
+    return data
+
+def get_category():
+    with connection.cursor() as cursor:
+        cursor.execute("""
+                SELECT * FROM ad_category
+        """)
+        data = dictfetchall(cursor)
+    return data
