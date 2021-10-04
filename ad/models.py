@@ -4,6 +4,11 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 from ckeditor.fields import RichTextField
 
+def default_location():
+    return {
+        "region": "",
+        "district": ""
+    }
 class Category(models.Model):
     name = models.CharField(max_length=50,  null=False, blank=False)
     parent = models.ForeignKey('self', related_name='father', on_delete=models.CASCADE, blank=True, null=True)
@@ -31,6 +36,8 @@ class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     price = models.IntegerField()
     decription = RichTextField()
+    phone_number = models.CharField(max_length=13)
+    location = models.JSONField(default=default_location)
     created_date = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 

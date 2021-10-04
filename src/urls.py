@@ -22,5 +22,4 @@ urlpatterns = [
     path('blog/', include('blog.urls')),
     path('auth/', include('registration.urls')),
     path('contact/', include('contact.urls')),
-    path('post_ads/', include('post_ads.urls'))
 ]
