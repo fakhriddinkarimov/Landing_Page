@@ -41,12 +41,8 @@ INSTALLED_APPS = [
     'blog',
     'contact',
     "tinymce",
-<<<<<<< HEAD
     'ckeditor',
-
-
-=======
->>>>>>> 74dafd5392654bab75084e6532b627137265cfbc
+    'post_ads'
 ]
 
 # ckeditor uladim
