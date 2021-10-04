@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'contact',
     "tinymce",
     'ckeditor',
-    'post_ads'
+    'post_ads',
+    'geo'
 ]
 
 # ckeditor uladim
