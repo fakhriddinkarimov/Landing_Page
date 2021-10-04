@@ -41,9 +41,21 @@ INSTALLED_APPS = [
     'blog',
     'contact',
     "tinymce",
+    'ckeditor',
 
 
 ]
+
+# ckeditor uladim
+CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
+CKEDITOR_CONFIGS = {
+    "default": {
+        "removePlugins": "stylesheetparser",
+        'height': 200,
+        'width': 450,
+    }
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
