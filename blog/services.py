@@ -38,7 +38,9 @@ def get_comments(id):
 def last_commet():
     with connection.cursor() as cursor:
         cursor.execute("""
-                SELECT * FROM blog_comments
+                SELECT  au.firstname as name, bc.message, bc.created_date FROM blog_comments as bc
+                INNER JOIN auth_user as au
+                ON au.id = bc.id
                 ORDER BY created_date DESC
                 limit 5;
         """)
@@ -54,6 +56,7 @@ def info_blog(id):
         """)
         data = dictfetchone(cursor)
     return data
+
 
 def get_category():
     with connection.cursor() as cursor:
