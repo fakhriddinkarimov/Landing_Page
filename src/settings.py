@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'contact',
     "tinymce",
     'ckeditor',
+    'crispy_forms', # crispy forms ulandi
     'geo'
 ]
 
@@ -50,10 +51,14 @@ CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
 CKEDITOR_CONFIGS = {
     "default": {
         "removePlugins": "stylesheetparser",
-        'height': 200,
-        'width': 450,
+        'height': "250",
+        'width': "100%",
     }
 }
+
+# crispy form 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 
 
 MIDDLEWARE = [

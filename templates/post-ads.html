@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 {% load static %}
 
 {% block content %}
@@ -105,15 +106,15 @@
 {% for form in forms %}
     <div class="dashboard-wrapper">
         <div class="form-group mb-3">
-            <label class="control-label">{{form.label_tag}}</label>
+            
 
-                {{form}}
+                {{form|as_crispy_field}}
 
 
         </div>
 
     </div>
-    {% endfor %}
+{% endfor %}
 </div>
 </div>
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5">

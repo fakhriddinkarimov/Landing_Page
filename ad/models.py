@@ -22,7 +22,7 @@ class Category(models.Model):
                 self.slug = slugify(self.name)
         return super().save(*args, **kwargs)
 
-    def str(self):
+    def __str__(self):
         return f'{self.name}'
 
 
