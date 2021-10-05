@@ -17,5 +17,7 @@ def post_ad(request):
     }
 
     return render(request , 'post-ads.html' , ctx)
-
+    
+def categories(request):
+	return render(request,'ads.html',{})
 
