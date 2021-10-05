@@ -38,9 +38,9 @@ def get_comments(id):
 def last_commet():
     with connection.cursor() as cursor:
         cursor.execute("""
-                SELECT  au.firstname as name, bc.message, bc.created_date FROM blog_comments as bc
+                SELECT au.first_name as name, bc.message, bc.created_date FROM blog_comments as bc
                 INNER JOIN auth_user as au
-                ON au.id = bc.id
+                ON au.id = bc.user_id
                 ORDER BY created_date DESC
                 limit 5;
         """)
