@@ -83,3 +83,5 @@ game.gif
 
 # virtual env
 venv*
+
+pyvenv.cfg
