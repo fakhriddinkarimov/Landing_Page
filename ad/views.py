@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .forms import ProductForm
+from .services import get_product_all
 
 # Create your views here.
 
@@ -19,5 +20,6 @@ def post_ad(request):
     return render(request , 'post-ads.html' , ctx)
     
 def categories(request):
-	return render(request,'ads.html',{})
+    products = get_product_all()
+    return render(request,'ads.html',{'products':products})
 
