@@ -17,24 +17,23 @@
             </div>
         </div>
     </div>
-    <div id="content" class="section-padding">
+    <form action="{% url 'add_blog'%}" method="POST"  enctype="multipart/form-data">{% csrf_token %}
+       <div id="content" class="section-padding">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-12 col-xs-12">
                     <div class="pagination-bar">
-                       <h1>ADD BLOG POST </h1>
-                      <form  method="POST">{% csrf_token %}
-                           {{form.as_p}}
+                       <h1 style="text-align:center">ADD BLOG POST </h1>
+                           {{form.as_p}}<br>
                            <div class="post-btn">
-                               <a class="btn btn-common" href="{% url 'blog'%}"><i class="lni-pencil-alt"></i> EXIT </a>
-                               <a class="btn btn-common" href="{% url 'add_blog'%}"><i class="lni-pencil-alt"></i> ADD </a>
+                               <a style="text-align:center" class="btn btn-common" href="{% url 'blog'%}"><i class="lni-pencil-alt"></i> EXIT </a>
+                               <input style="text-align:center" class="btn btn-common" type="submit" value="ADD"  class="lni-pencil-alt">
                            </div>
-                      </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    </form>
 </body>
-
 {% endblock %}

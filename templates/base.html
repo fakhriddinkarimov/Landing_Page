@@ -248,10 +248,10 @@
                 },
             success: function (data){
                 $('#comment-list').append('<li> <div class="media">  <div class="thumb-left">  <a href="#">  <img class="img-fluid" src="assets/img/blog/user1.jpg" alt="" /> </a>                                         </div>  <div class="info-body"> <div class="media-heading">  <h4 class="name">My_name</h4>  <span class="comment-date"><i class="lni-alarm-clock"></i>{{ commet.created_date }}</span>  <a href="#" class="reply-link"><i class="lni-reply"></i> Reply</a> </div>  <p>' + data + '</p>  </div>  </div>  </li>');
-                }
+            }
                 });
 
-            eturn false;
+            return false;
 
             );
             });
