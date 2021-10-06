@@ -1,3 +1,6 @@
+import json
+from collections import OrderedDict
+
 from django.db import connection
 
 def dictfetchall(cursor):
@@ -19,4 +22,38 @@ def get_product_all():
                    ORDER BY created_date DESC
            """)
         data = dictfetchall(cursor)
+    data = _format_all(data)
     return data
+
+def all_categories():
+    with connection.cursor() as cursor:
+        cursor.execute("""
+        SELECT * FROM ad_category
+        """)
+        data = dictfetchall(cursor)
+    return data
+
+def _format_all(data):
+    new_data = []
+    for d in data:
+        if d['location']:
+            region = json.loads(d['location'])['region']
+            district = json.loads(d['location'])['district']
+        else:
+            region = None
+            district = None
+        new_data.append(OrderedDict([
+            ('id',d['id']),
+            ('title',d['title']),
+            ('slug',d['slug']),
+            ('decription',d['decription']),
+            ('phone_number',d['phone_number']),
+            ('created_date',d['created_date']),
+            ('category_id',d['category_id']),
+            ('product_id',d['product_id']),
+            ('image',d['image']),
+            ('name',d['name']),
+            ('region',region),
+            ('district',district),
+        ]))
+    return new_data
