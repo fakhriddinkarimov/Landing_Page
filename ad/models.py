@@ -27,7 +27,7 @@ class Category(models.Model):
 
 
 class Image(models.Model):
-    image = models.ImageField(upload_to='media/product/image/')
+    image = models.ImageField(upload_to='static/img/')
 
 
 class Product(models.Model):
