@@ -7,4 +7,7 @@ class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
         exclude = ['slug']
-        
+
+    def __init__(self, *args, **kwargs):
+        self.user = kwargs.pop('user')
+        super(ProductForm, self).__init__(*args, **kwargs)

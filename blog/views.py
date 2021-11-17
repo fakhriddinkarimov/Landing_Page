@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .services import get_blog, get_comments,get_comments, info_blog, get_category, last_commet
 from .forms import BlogModelForm,Comment
 from .models import Blog,Comments
@@ -23,17 +23,19 @@ def add_post(request):
     contex ={
         'form':form
     }
-    return  render(request, 'blog/post.html', contex)
+    return render(request, 'blog/post.html', contex)
 
 
 def add_db(request):
+    form = BlogModelForm()
     if request.POST:
         form = BlogModelForm(request.POST, request.FILES)
         print(request.FILES)
         if form.is_valid():
             form.save()
+            return redirect('blog')
     ctx = {
-        'form':form
+        'form': form
     }
     return render(request, 'blog/post.html',ctx)
 

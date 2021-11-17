@@ -9,6 +9,9 @@ def dictfetchall(cursor):
         dict(zip([col[0] for col in desc], row))
         for row in cursor.fetchall()
     ]
+def dictfetchone(cursor):
+    desc = cursor.description
+    return dict(zip([col[0] for col in desc], cursor.fetchone()))
 def get_product_all():
     with connection.cursor() as cursor:
         cursor.execute(f"""
@@ -55,5 +58,15 @@ def _format_all(data):
             ('name',d['name']),
             ('region',region),
             ('district',district),
+            ('price',d['price'])
         ]))
     return new_data
+def info_ad(id):
+    with connection.cursor() as cursor:
+        cursor.execute(f"""
+                SELECT * FROM ad_product
+                where id = {id}
+        """)
+        data = dictfetchone(cursor)
+    return data
+

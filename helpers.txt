@@ -13,4 +13,4 @@
 
 ####  How to use dumpdata and loaddata
 ------   python manage.py dumpdata app_name > app_name/fixtures/db.json
-------  python manage.py loaddata db.json
+------  python manage.py loaddata.json

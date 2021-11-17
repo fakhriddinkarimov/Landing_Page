@@ -6,12 +6,15 @@ from django.contrib.auth.models import User
 
 class Blog(models.Model):
     name = models.CharField(max_length=255)
-    description =tinymce_models.HTMLField()
+    description = tinymce_models.HTMLField()
     slug = models.SlugField(max_length=255)
     image = models.ImageField(upload_to='static/img/')
     created_date = models.DateField(auto_now_add=True)
     category = models.ForeignKey(
         Category, on_delete =models.CASCADE
+
+
+
     )
 
     def save(self, *args, **kwargs):

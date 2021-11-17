@@ -68,7 +68,7 @@
 <a href="category.html">
 <div class="category-icon-item">
 <div class="icon-box">
-<div class="icon"`>
+<div class="icon">
 <img src="{% static 'img/category/img-1.png' %}" alt="">
 </div>
 <h4>Bicycle</h4>
@@ -177,12 +177,11 @@
 </div>
 </div>
 </section>
-
-
 <section class="featured section-padding">
 <div class="container">
-<h1 class="section-title">Latest Products</h1>
+<h1 class="section-title">title</h1>
 <div class="row">
+    {% for product in products %}
 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
 <div class="featured-box">
 <figure>
@@ -190,216 +189,39 @@
 <span class="bg-green"><i class="lni-heart"></i></span>
 <span><i class="lni-bookmark"></i></span>
 </div>
-<a href="#"><img class="img-fluid" src="{% static 'img/featured/img-1.jpg' %}" alt=""></a>
+<a href="#"><img class="img-fluid" src="{{ product.image }}" alt=""></a>
 </figure>
 <div class="feature-content">
 <div class="product">
-<a href="#">Electronic > </a>
-<a href="#">Cameras</a>
+<a href="#">{{ product.name }} </a>
+<a href="#">{{ product.title }}</a>
 </div>
-<h4><a href="ads-details.html">Canon SX Powershot ...</a></h4>
+<h4><a href="ads-details.html">{{ product.title }}</a></h4>
 <div class="meta-tag">
 <span>
-<a href="#"><i class="lni-user"></i> John Smith</a>
+<a href="#"><i class="lni-user"></i> {{ product.user }}</a>
 </span>
 <span>
-<a href="#"><i class="lni-map-marker"></i> New York, US</a>
+<a href="#"><i class="lni-map-marker"></i> {{ product.region }}</a>
 </span>
 <span>
-<a href="#"><i class="lni-tag"></i> Canon</a>
+<a href="#"><i class="lni-tag"></i> {{ product.name }}</a>
 </span>
 </div>
-<p class="dsc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.</p>
+<p class="dsc">{{ product.decription|safe }}</p>
 <div class="listing-bottom">
-<h3 class="price float-left">$249.00</h3>
+<h3 class="price float-left">${{ product.price }}</h3>
 <a href="ads-details.html" class="btn btn-common float-right">View Details</a>
 </div>
 </div>
 </div>
 </div>
+    {% endfor %}
 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
 <div class="featured-box">
-<figure>
-<span class="price-save">
-25% Save
-</span>
-<div class="icon">
-<span class="bg-green"><i class="lni-heart"></i></span>
-<span><i class="lni-bookmark"></i></span>
-</div>
-<a href="#"><img class="img-fluid" src="{% static 'img/featured/img-2.jpg' %}" alt=""></a>
-</figure>
-<div class="feature-content">
-<div class="product">
-<a href="#">Electronic > </a>
-<a href="#">Computers</a>
-</div>
-<h4><a href="ads-details.html">Apple Macbook Pro ...</a></h4>
-<div class="meta-tag">
-<span>
-<a href="#"><i class="lni-user"></i> Sara Doe</a>
-</span>
-<span>
-<a href="#"><i class="lni-map-marker"></i> California, US</a>
-</span>
-<span>
-<a href="#"><i class="lni-tag"></i> Phones</a>
-</span>
-</div>
-<p class="dsc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.</p>
-<div class="listing-bottom">
-<h3 class="price float-left">$289.00</h3>
-<a href="ads-details.html" class="btn btn-common float-right">View Details</a>
-</div>
-</div>
-</div>
-</div>
-<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-<div class="featured-box">
-<figure>
-<div class="icon">
-<span class="bg-green"><i class="lni-heart"></i></span>
-<span><i class="lni-bookmark"></i></span>
-</div>
-<a href="#"><img class="img-fluid" src="{% static 'img/featured/img-3.jpg' %}" alt=""></a>
-</figure>
-<div class="feature-content">
-<div class="product">
-<a href="#">Vehicle > </a>
-<a href="#">Cars</a>
-</div>
-<h4><a href="ads-details.html">Mercedes Benz E200 ...</a></h4>
-<div class="meta-tag">
-<span>
-<a href="#"><i class="lni-user"></i> Rossi Josh</a>
-</span>
-<span>
-<a href="#"><i class="lni-map-marker"></i> Washington, US</a>
-</span>
-<span>
-<a href="#"><i class="lni-tag"></i> Others</a>
-</span>
-</div>
-<p class="dsc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.</p>
-<div class="listing-bottom">
-<h3 class="price float-left">$199.80</h3>
-<a href="ads-details.html" class="btn btn-common float-right">View Details</a>
-</div>
-</div>
-</div>
-</div>
-<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-<div class="featured-box">
-<figure>
-<span class="price-save">
-10% Save
-</span>
-<div class="icon">
-<span class="bg-green"><i class="lni-heart"></i></span>
-<span><i class="lni-bookmark"></i></span>
-</div>
-<a href="#"><img class="img-fluid" src="{% static 'img/featured/img-4.jpg' %}" alt=""></a>
-</figure>
-<div class="feature-content">
-<div class="product">
-<a href="#">Others > </a>
-<a href="#">Bags</a>
-</div>
-<h4><a href="ads-details.html">Brown Leather Bag ...</a></h4>
-<div class="meta-tag">
-<span>
-<a href="#"><i class="lni-user"></i> Maria Barlow</a>
-</span>
-<span>
-<a href="#"><i class="lni-map-marker"></i> Chicago, US</a>
-</span>
-<span>
-<a href="#"><i class="lni-tag"></i> Gucci</a>
-</span>
-</div>
-<p class="dsc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.</p>
-<div class="listing-bottom">
-<h3 class="price float-left">$206.90</h3>
-<a href="ads-details.html" class="btn btn-common float-right">View Details</a>
-</div>
-</div>
-</div>
-</div>
-<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-<div class="featured-box">
-<figure>
-<div class="icon">
-<span class="bg-green"><i class="lni-heart"></i></span>
-<span><i class="lni-bookmark"></i></span>
-</div>
-<a href="#"><img class="img-fluid" src="{% static 'img/featured/img-5.jpg' %}" alt=""></a>
-</figure>
-<div class="feature-content">
-<div class="product">
-<a href="#">Electronic > </a>
-<a href="#">Apple</a>
-</div>
-<h4><a href="ads-details.html">Iphonex 6 Plus Factor ...</a></h4>
-<div class="meta-tag">
-<span>
-<a href="#"><i class="lni-user"></i> David Givens</a>
-</span>
-<span>
-<a href="#"><i class="lni-map-marker"></i> New York, US</a>
-</span>
-<span>
-<a href="#"><i class="lni-tag"></i> Apple</a>
-</span>
-</div>
-<p class="dsc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.</p>
-<div class="listing-bottom">
-<h3 class="price float-left">$106.70</h3>
-<a href="ads-details.html" class="btn btn-common float-right">View Details</a>
-</div>
-</div>
-</div>
-</div>
-<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-<div class="featured-box">
-<figure>
-<span class="price-save">
-35% Save
-</span>
-<div class="icon">
-<span class="bg-green"><i class="lni-heart"></i></span>
-<span><i class="lni-bookmark"></i></span>
-</div>
-<a href="#"><img class="img-fluid" src="{% static 'img/featured/img-6.jpg' %}" alt=""></a>
-</figure>
-<div class="feature-content">
-<div class="product">
-<a href="#">Furniture > </a>
-<a href="#">Home</a>
-</div>
-<h4><a href="ads-details.html">Wooden Dining Tabl ...</a></h4>
-<div class="meta-tag">
-<span>
-<a href="#"><i class="lni-user"></i> John Smith</a>
-</span>
-<span>
-<a href="#"><i class="lni-map-marker"></i> New York, US</a>
-</span>
-<span>
-<a href="#"><i class="lni-tag"></i> Apple</a>
-</span>
-</div>
-<p class="dsc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry.</p>
-<div class="listing-bottom">
-<h3 class="price float-left">$120.00</h3>
-<a href="ads-details.html" class="btn btn-common float-right">View Details</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
 
+
+</section>
 
 <section class="featured-lis section-padding">
 <div class="container">

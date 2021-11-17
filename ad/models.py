@@ -16,7 +16,7 @@ class Category(models.Model):
 
     def save(self, *args, **kwargs):
         if self.parent and self.parent.name == self.name:
-            raise ValidationError('Xato....')
+            raise ValidationError('Xato...')
         else:
             if not self.slug:
                 self.slug = slugify(self.name)
@@ -40,19 +40,12 @@ class Product(models.Model):
     location = models.JSONField(default=default_location)
     created_date = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-
     def __str__(self):
         return self.title
-
-
-
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
         return super().save(*args, **kwargs)
-
-
-
 class ProductImage(models.Model):
     image = models.ForeignKey(Image,on_delete=models.CASCADE)
     product = models.ForeignKey(Product,on_delete=models.CASCADE)
